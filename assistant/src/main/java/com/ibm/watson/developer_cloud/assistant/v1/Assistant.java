@@ -13,81 +13,21 @@
 package com.ibm.watson.developer_cloud.assistant.v1;
 
 import com.google.gson.JsonObject;
-import com.ibm.watson.developer_cloud.assistant.v1.model.Counterexample;
-import com.ibm.watson.developer_cloud.assistant.v1.model.CounterexampleCollection;
-import com.ibm.watson.developer_cloud.assistant.v1.model.CreateCounterexampleOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.CreateDialogNodeOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.CreateEntityOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.CreateExampleOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.CreateIntentOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.CreateSynonymOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.CreateValueOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.CreateWorkspaceOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.DeleteCounterexampleOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.DeleteDialogNodeOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.DeleteEntityOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.DeleteExampleOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.DeleteIntentOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.DeleteSynonymOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.DeleteUserDataOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.DeleteValueOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.DeleteWorkspaceOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.DialogNode;
-import com.ibm.watson.developer_cloud.assistant.v1.model.DialogNodeCollection;
-import com.ibm.watson.developer_cloud.assistant.v1.model.Entity;
-import com.ibm.watson.developer_cloud.assistant.v1.model.EntityCollection;
-import com.ibm.watson.developer_cloud.assistant.v1.model.EntityExport;
-import com.ibm.watson.developer_cloud.assistant.v1.model.EntityMentionCollection;
-import com.ibm.watson.developer_cloud.assistant.v1.model.Example;
-import com.ibm.watson.developer_cloud.assistant.v1.model.ExampleCollection;
-import com.ibm.watson.developer_cloud.assistant.v1.model.GetCounterexampleOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.GetDialogNodeOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.GetEntityOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.GetExampleOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.GetIntentOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.GetSynonymOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.GetValueOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.GetWorkspaceOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.Intent;
-import com.ibm.watson.developer_cloud.assistant.v1.model.IntentCollection;
-import com.ibm.watson.developer_cloud.assistant.v1.model.IntentExport;
-import com.ibm.watson.developer_cloud.assistant.v1.model.ListAllLogsOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.ListCounterexamplesOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.ListDialogNodesOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.ListEntitiesOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.ListExamplesOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.ListIntentsOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.ListLogsOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.ListMentionsOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.ListSynonymsOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.ListValuesOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.ListWorkspacesOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.LogCollection;
-import com.ibm.watson.developer_cloud.assistant.v1.model.MessageOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.MessageResponse;
-import com.ibm.watson.developer_cloud.assistant.v1.model.Synonym;
-import com.ibm.watson.developer_cloud.assistant.v1.model.SynonymCollection;
-import com.ibm.watson.developer_cloud.assistant.v1.model.UpdateCounterexampleOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.UpdateDialogNodeOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.UpdateEntityOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.UpdateExampleOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.UpdateIntentOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.UpdateSynonymOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.UpdateValueOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.UpdateWorkspaceOptions;
-import com.ibm.watson.developer_cloud.assistant.v1.model.Value;
-import com.ibm.watson.developer_cloud.assistant.v1.model.ValueCollection;
-import com.ibm.watson.developer_cloud.assistant.v1.model.ValueExport;
-import com.ibm.watson.developer_cloud.assistant.v1.model.Workspace;
-import com.ibm.watson.developer_cloud.assistant.v1.model.WorkspaceCollection;
-import com.ibm.watson.developer_cloud.assistant.v1.model.WorkspaceExport;
+import com.ibm.watson.developer_cloud.assistant.v1.model.*;
 import com.ibm.watson.developer_cloud.http.RequestBuilder;
 import com.ibm.watson.developer_cloud.http.ServiceCall;
 import com.ibm.watson.developer_cloud.service.WatsonService;
+import com.ibm.watson.developer_cloud.service.model.GenericModel;
 import com.ibm.watson.developer_cloud.service.security.IamOptions;
 import com.ibm.watson.developer_cloud.util.GsonSingleton;
 import com.ibm.watson.developer_cloud.util.ResponseConverterUtils;
 import com.ibm.watson.developer_cloud.util.Validator;
+import okhttp3.HttpUrl;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * The IBM Watson&trade; Assistant service combines machine learning, natural language understanding, and integrated
@@ -1683,6 +1623,123 @@ public class Assistant extends WatsonService {
         "service_name=conversation;service_version=v1;operation_id=deleteUserData");
     builder.query("customer_id", deleteUserDataOptions.customerId());
     return createServiceCall(builder.build(), ResponseConverterUtils.getVoid());
+  }
+
+  /**
+   * Creates a version for a particular skill using its definition id.
+   * @param definitionId definition Id of the workspace
+   * @param description description for the snapshot(or version) to be created
+   * @return a {@link ServiceCall} with a response type of Snapshot
+   */
+  public ServiceCall<Snapshot> createSnapshot(String definitionId , String description) {
+    String[] pathSegments = { "v1/workers/definitions","snapshots" };
+    String[] pathParameters = { definitionId };
+    HttpUrl httpUrl = RequestBuilder.constructHttpUrl(getEndPoint(), pathSegments,
+            pathParameters);
+    RequestBuilder builder = RequestBuilder.post(httpUrl);
+    builder.query(VERSION,versionDate);
+    JsonObject jsonObject = new JsonObject();
+    jsonObject.addProperty("description",description);
+    builder.bodyJson(jsonObject);
+    return createServiceCall(builder.build(),ResponseConverterUtils.getObject(Snapshot.class));
+  }
+
+  private ServiceCall<Void> deleteUtil(String[] pathSegments,String[] pathParameters) {
+    HttpUrl httpUrl = RequestBuilder.constructHttpUrl(getEndPoint(), pathSegments,
+            pathParameters);
+    RequestBuilder builder = RequestBuilder.delete(httpUrl);
+    return createServiceCall(builder.build(),ResponseConverterUtils.getVoid());
+  }
+
+  /**
+   * Removes the version from the workspace.
+   * @param snapshot Snapshit model.
+   * @return a {@link ServiceCall} with a response type of Void
+   */
+  public ServiceCall<Void> deleteSnapshot(Snapshot snapshot) {
+    String definitionId = snapshot.getWorkerDefinitionId();
+    String snapShotId = snapshot.getId();
+    String[] pathSegments = { "v1/workers/definitions","snapshots"};
+    String[] pathParameters = { definitionId, snapShotId };
+    return deleteUtil(pathSegments,pathParameters);
+  }
+
+  private  <T extends GenericModel> ServiceCall<T> getData(String[] pathSegments, String[] pathParameters , Class tClass) {
+    return getData(pathSegments,pathParameters,null,tClass);
+  }
+
+  private  <T extends GenericModel> ServiceCall<T> getData(String[] pathSegments, String[] pathParameters, Map<String,String> params, Class tClass) {
+    HttpUrl httpUrl = RequestBuilder.constructHttpUrl(getEndPoint(), pathSegments,
+            pathParameters);
+    RequestBuilder builder = RequestBuilder.get(httpUrl);
+    builder.query(VERSION, versionDate);
+    if (params != null) {
+      for(String key:params.keySet()) {
+        builder.query(key,params.get(key));
+      }
+    }
+    ServiceCall<T> response =
+            createServiceCall(builder.build(), ResponseConverterUtils.getObject(tClass));
+    return response;
+  }
+
+  /**
+   * Lists all definitions in a collections.
+   * @return a {@link ServiceCall} with a response type of DefinitionCollection
+   */
+  public ServiceCall<DefinitionCollection> getDefinitions() {
+    String[] pathSegments = { "v1/workers/definitions"  };
+    String[] pathParameters = {  };
+    return getData(pathSegments,pathParameters,DefinitionCollection.class);
+  }
+
+  /**
+   * Fetch Definition from definition Id.
+   * @param definitionId definition Id
+   * @return a {@link ServiceCall} with a response type of Definition
+   */
+  public ServiceCall<Definition> getDefinition(String definitionId) {
+    String[] pathSegments = { "v1/workers/definitions"  };
+    String[] pathParameters = { definitionId };
+    return getData(pathSegments,pathParameters,Definition.class);
+  }
+
+  /**
+   * Used to fetch snapShot Object without export data.
+   * @param definitionId definition Id
+   * @param snapShotId snapShot Id
+   * @return  a {@link ServiceCall} with a response type of Snapshot
+   */
+  public ServiceCall<Snapshot> getSnapShot(String definitionId,String snapShotId) {
+    return getSnapShot(definitionId,snapShotId,false);
+  }
+
+  /**
+   * Used to fetch snapshot object along with workspace data.
+   * @param definitionId Definition Id.
+   * @param snapShotId SnapShot Id
+   * @param exportData Whether to export snapshot workspace data.
+   * @return  a {@link ServiceCall} with a response type of Snapshot
+   */
+  public ServiceCall<Snapshot> getSnapShot(String definitionId,String snapShotId,boolean exportData) {
+    String[] pathSegments = { "v1/workers/definitions","snapshots"};
+    String[] pathParameters = { definitionId, snapShotId };
+    Map<String,String> params = new HashMap<>();
+    if (exportData) {
+      params.put("export","true");
+    }
+    return getData(pathSegments,pathParameters,params,Snapshot.class);
+  }
+
+  /**
+   * Fetch all snapshots in a definition.
+   * @param definitionId definition Id
+   * @return  a {@link ServiceCall} with a response type of SnapshotCollection
+   */
+  public ServiceCall<SnapshotCollection> getSnapShots(String definitionId) {
+    String[] pathSegments = { "v1/workers/definitions","snapshots"};
+    String[] pathParameters = { definitionId };
+    return getData(pathSegments,pathParameters,SnapshotCollection.class);
   }
 
 }
